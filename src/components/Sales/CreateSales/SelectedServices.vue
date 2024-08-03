@@ -1,10 +1,11 @@
 <template>
-  <div class="card border-0 shadow-none rounded-1 mb-30">
+  <!-- Added table-responsive class -->
+  <div class="card border-0 shadow-none rounded-1 mb-30 pb-70 table-responsive">
     <div class="card-body p-xl-40">
       <h6 class="fs-18 mb-35 text-title fw-semibold">
         Selected Services For Entry
       </h6>
-      <div class="table-responsive">
+      <!-- Removed div tag -->
         <table class="table text-nowrap align-middle mb-0">
           <thead>
             <tr>
@@ -111,7 +112,6 @@
 
       </div>
     </div>
-  </div>
 </template>
 
 <script lang="ts">

@@ -48,7 +48,6 @@
               <ul v-if="subItem.subMenu" class="sidebar-tertiary-menu list-style bg-white">
                 <li v-for="(thirdItem, thirdIndex) in subItem.subMenu" :key="thirdIndex" class="nav-item">
                   <router-link :to="thirdItem.link">
-
                     {{ thirdItem.name }}
                   </router-link>
                 </li>
@@ -95,7 +94,7 @@ export default {
           icon: "products.svg",
           subMenu: [
             { name: "Create Product", icon: "create-item.svg", link: "/create-product" },
-            { name: "Product Details", icon: "item-list.svg", link: "/product-list" },
+            { name: "Product Details", icon: "item-list.svg", link: "/stock-list" },
           ]
         },
         {
@@ -103,7 +102,7 @@ export default {
           icon: "people.svg",
           subMenu: [
             { name: "Purchase Orders", icon: "item-list.svg", link: "/customer-purchase-list" },
-            { name: "Create Purchases", icon: "create-item.svg", link: "/create-purchase" }
+            { name: "Create Purchases", icon: "create-item.svg", link: "/customer-create-purchase" }
           ]
         },
         {
@@ -135,21 +134,18 @@ export default {
           name: "Settings",
           icon: "setting-2.svg",
           subMenu: [
-            // { name: "System Settings", icon: "setting-3.svg", link: "/system-settings" },
-            // { name: "Group Permission", icon: "group.svg", link: "/group-permission" },
             { name: "Branch", icon: "warehouse.svg", link: "/warehouse-list" },
             { name: "Category", icon: "category.svg", link: "/category-list" },
-            // { name: "Brand", icon: "brand.svg", link: "/brand-list" },
-            // { name: "Currency", icon: "currency.svg", link: "/currency-list" },
             { name: "Unit", icon: "unit.svg", link: "/unit-list" },
-            // { name: "Backup", icon: "backup.svg", link: "/backup" },
-            {
-              name: "Products", icon: "setting-3.svg", link: "", subMenu: [
-                { name: "Create Product", icon: "brand.svg", link: "/create-product" },
-                { name: "Product List", icon: "currency.svg", link: "/product-list" },
-                // { name: "Print Barcode", icon: "barcode.svg", link: "/print-barcode" }
-              ]
-            },
+
+            
+                                        // No need to show the products on settings 
+            // {
+            //   name: "Products", icon: "setting-3.svg", link: "/_", subMenu: [
+            //     { name: "Create Product", icon: "brand.svg", link: "/create-product" },
+            //     { name: "Product List", icon: "currency.svg", link: "/product-list" },
+            //   ]
+            // },
           ]
         },
         {
