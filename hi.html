@@ -1,0 +1,57 @@
+<div id="app">
+  <form @submit.prevent="applyFilters">
+    <input type="text" v-model="searchQuery" placeholder="Search..." />
+    <button type="submit">Search</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Occupation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="person in filteredPeople" :key="person.id">
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.occupation }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      searchQuery: '',
+      people: [
+        { id: 1, name: 'Alice', age: 25, occupation: 'Engineer' },
+        { id: 2, name: 'Bob', age: 30, occupation: 'Designer' },
+        { id: 3, name: 'Charlie', age: 35, occupation: 'Teacher' },
+        { id: 4, name: 'David', age: 40, occupation: 'Developer' }
+      ]
+    },
+    computed: {
+      filteredPeople() {
+        const query = this.searchQuery.toLowerCase();
+        return this.people.filter(person => {
+          return (
+            person.name.toLowerCase().includes(query) ||
+            person.age.toString().includes(query) ||
+            person.occupation.toLowerCase().includes(query)
+          );
+        });
+      }
+    },
+    methods: {
+      applyFilters() {
+        // Since the filtering happens automatically with the computed property, this method is not strictly necessary,
+        // but it can be used for other actions if needed, such as logging or more complex filtering logic.
+      }
+    }
+  });
+</script>
